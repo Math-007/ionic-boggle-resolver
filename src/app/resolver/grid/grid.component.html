@@ -1,0 +1,25 @@
+<ion-content>
+  <form (ngSubmit)="onSearch()">
+    <ion-grid>
+      <ion-list *ngFor="let height of [] | range:girdDataService.height">
+        <ion-col>
+          <ion-item>
+            <ion-label>column {{height + 1}}</ion-label>
+            <ion-input
+                    [(ngModel)]="gridLetter[height]"
+                    [ngModelOptions]="{standalone: true}"
+                    type="text"
+                    placeholder="enter column letters ({{girdDataService.width}})"
+                    pattern="/^[a-zA-Z]+$/"
+                    [maxlength]="girdDataService.width.toString()"
+                    [minlength]="girdDataService.width.toString()">
+            </ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-list>
+    </ion-grid>
+
+    <ion-button type="submit" >Search !</ion-button>
+  </form>
+
+</ion-content>

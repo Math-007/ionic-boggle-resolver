@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-label>{{words.length}} results</ion-label>
+</ion-header>
+
+<ion-content>
+
+  <ion-list inset="true">
+    <ion-item *ngFor="let value of words">
+      <ion-label>{{value}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button (click)="close()">Close</ion-button>
+  <ion-label></ion-label>
+</ion-footer>

@@ -1,5 +1,7 @@
 {
   "name": "ionic-boggle-resolver",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
