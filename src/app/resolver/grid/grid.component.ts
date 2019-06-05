@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {GridDataService} from '../../shared/grid-data.service';
-import {FormControl, Validators} from '@angular/forms';
-import {Validator} from '@angular/forms/src/directives/validators';
 import {BoggleResolverService} from '../../shared/boggle-resolver.service';
 import {GridData} from '../../shared/DTO/grid-data';
-import {WordList} from '../../shared/DTO/word-list'
+import {WordList} from '../../shared/DTO/word-list';
 import {ModalController} from '@ionic/angular';
 import {ModalComponent} from '../modal/modal.component';
 
@@ -21,7 +19,7 @@ export class GridComponent implements OnInit {
   constructor(public girdDataService: GridDataService,
               private boggleResolverService: BoggleResolverService,
               private modalController: ModalController) {
-    for (let i = girdDataService.MIN_SIZE; i <= girdDataService.MIN_SIZE; i++) {
+    for (let i = 0; i < girdDataService.height; i++) {
       this.gridRowValid[i] = true;
     }
   }
@@ -52,7 +50,10 @@ export class GridComponent implements OnInit {
   }
 
   public onInput(rowNo: number): void {
+
     console.log(this.gridLetter[rowNo]);
+    this.gridRowValid[rowNo] = this.gridLetter[rowNo] ? this.gridLetter[rowNo].length === this.girdDataService.width : false;
+    console.log(this.gridRowValid[rowNo]);
   }
 
 }

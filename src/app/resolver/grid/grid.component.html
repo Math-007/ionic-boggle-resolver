@@ -13,12 +13,16 @@
                       placeholder="enter row letters ({{girdDataService.width}})"
                       pattern="[a-z]*"
                       [maxlength]="girdDataService.width.toString()"
-                      [minlength]="girdDataService.width.toString()">
+                      [minlength]="girdDataService.width.toString()"
+                      (ionChange)="onInput(height)">
               </ion-input>
             </ion-item>
           </ion-col>
-          <ion-col size="1">
-            <ion-icon name="alert" class="error"></ion-icon>
+          <ion-col size="2">
+            <ion-buttons [ngClass]="gridRowValid[height] ? 'hidden' : ''" class="error" large>
+                <ion-icon name="alert"></ion-icon>
+            </ion-buttons>
+
           </ion-col>
         </ion-row>
       </ion-list>
