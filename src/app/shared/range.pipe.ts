@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class RangePipe implements PipeTransform {
 
-  transform(array: number[], range: number): number[] {
+  transform(array: number[], max: number, min: number = 0): number[] {
       array = [];
-      for (let i = 0; i < range; i++) {
+      for (let i = min; i < max; i++) {
           array.push(i);
       }
 

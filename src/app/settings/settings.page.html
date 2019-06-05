@@ -11,14 +11,14 @@
     <ion-item>
       <ion-label>Height</ion-label>
       <ion-select placeholder="Select One" [(ngModel)]="gridDataService.height">
-        <ion-select-option *ngFor="let height of gridDataService.SIZES" [value]="height">{{height}}</ion-select-option>
+        <ion-select-option *ngFor="let height of [] | range:gridDataService.MAX_SIZE:gridDataService.MIN_SIZE" [value]="height">{{height}}</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>Width</ion-label>
       <ion-select placeholder="Select One" [(ngModel)]="gridDataService.width">
-        <ion-select-option *ngFor="let width of gridDataService.SIZES" [value]="width">{{width}}</ion-select-option>
+        <ion-select-option *ngFor="let width of [] | range:gridDataService.MAX_SIZE:gridDataService.MIN_SIZE" [value]="width">{{width}}</ion-select-option>
       </ion-select>
     </ion-item>
 

@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SettingsPage } from './settings.page';
+import {ResolverPageModule} from '../resolver/resolver.module';
+import {RangePipe} from '../shared/range.pipe';
+import {SharedModule} from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -15,12 +18,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        ResolverPageModule,
+        SharedModule
+    ],
   declarations: [SettingsPage]
 })
 export class SettingsPageModule {}

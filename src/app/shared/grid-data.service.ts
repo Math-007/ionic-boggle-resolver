@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class GridDataService {
 
-  public readonly SIZES: number[] =  [4, 5, 6, 7, 8, 9, 10];
+  public readonly MIN_SIZE: number = 4;
+  public readonly MAX_SIZE: number = 10;
   public readonly LANGUAGES: string[] = ['French', 'English']; // TODO : get by http
   public height: number = 4;
   public width: number = 5;

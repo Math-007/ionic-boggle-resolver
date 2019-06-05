@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GridDataService} from '../common/grid-data.service';
+import {GridDataService} from '../shared/grid-data.service';
 
 @Component({
   selector: 'app-settings',

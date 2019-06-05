@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {GridDataService} from '../../common/grid-data.service';
+import {GridDataService} from '../../shared/grid-data.service';
 import {FormControl, Validators} from '@angular/forms';
 import {Validator} from '@angular/forms/src/directives/validators';
-import {BoggleResolverService} from '../../common/boggle-resolver.service';
-import {GridData} from '../../common/http/grid-data';
-import {WordList} from '../../common/http/word-list';
+import {BoggleResolverService} from '../../shared/boggle-resolver.service';
+import {GridData} from '../../shared/DTO/grid-data';
+import {WordList} from '../../shared/DTO/word-list'
 import {ModalController} from '@ionic/angular';
 import {ModalComponent} from '../modal/modal.component';
 
@@ -16,15 +16,15 @@ import {ModalComponent} from '../modal/modal.component';
 export class GridComponent implements OnInit {
 
   public gridLetter: string[] = [];
-  public gridLetterForm: FormControl = new FormControl('girdLetter', Validators.compose([
-      Validators.required,
-      Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-    ])
-  );
+  public gridRowValid: boolean[] = [];
 
   constructor(public girdDataService: GridDataService,
               private boggleResolverService: BoggleResolverService,
-              private modalController: ModalController) { }
+              private modalController: ModalController) {
+    for (let i = girdDataService.MIN_SIZE; i <= girdDataService.MIN_SIZE; i++) {
+      this.gridRowValid[i] = true;
+    }
+  }
 
   ngOnInit() {}
 
