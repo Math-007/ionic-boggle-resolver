@@ -14,14 +14,11 @@ import {ModalComponent} from '../modal/modal.component';
 export class GridComponent implements OnInit {
 
   public gridLetter: string[] = [];
-  public gridRowValid: boolean[] = [];
+  public gridRowValid: string[] = [];
 
   constructor(public girdDataService: GridDataService,
               private boggleResolverService: BoggleResolverService,
               private modalController: ModalController) {
-    for (let i = 0; i < girdDataService.height; i++) {
-      this.gridRowValid[i] = true;
-    }
   }
 
   ngOnInit() {}
@@ -52,8 +49,18 @@ export class GridComponent implements OnInit {
   public onInput(rowNo: number): void {
 
     console.log(this.gridLetter[rowNo]);
-    this.gridRowValid[rowNo] = this.gridLetter[rowNo] ? this.gridLetter[rowNo].length === this.girdDataService.width : false;
-    console.log(this.gridRowValid[rowNo]);
+    const lengthValid: boolean = this.gridLetter[rowNo] ? this.gridLetter[rowNo].length === this.girdDataService.width : false;
+    if (!lengthValid) {
+      this.gridRowValid[rowNo] = `There must have ${this.girdDataService.width} letters`;
+      return;
+    }
+    const alphaNumChar: boolean = new RegExp(/^[a-z]+$/i).test(this.gridRowValid[rowNo]);
+    console.log(alphaNumChar);
+    if (!alphaNumChar) {
+      this.gridRowValid[rowNo] = 'Must be alphanumeric character';
+      return;
+    }
+    this.gridRowValid[rowNo] = undefined;
   }
 
 }

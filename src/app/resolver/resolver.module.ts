@@ -9,6 +9,7 @@ import { ResolverPage } from './resolver.page';
 import {GridComponent} from './grid/grid.component';
 import {ModalComponent} from './modal/modal.component';
 import {SharedModule} from '../shared/shared.module';
+import {TooltipsModule} from 'ionic-tooltips';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     SharedModule,
-
+    TooltipsModule.forRoot()
   ],
   declarations: [
     ResolverPage,
