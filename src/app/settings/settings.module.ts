@@ -6,9 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { SettingsPage } from './settings.page';
-import {ResolverPageModule} from '../resolver/resolver.module';
-import {RangePipe} from '../shared/range.pipe';
-import {SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   {
@@ -23,7 +21,6 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        ResolverPageModule,
         SharedModule
     ],
   declarations: [SettingsPage]
