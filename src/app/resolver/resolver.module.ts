@@ -7,11 +7,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { ResolverPage } from './resolver.page';
 import {GridComponent} from './grid/grid.component';
-import {AppModule} from '../app.module';
-import {RangePipe} from '../shared/range.pipe';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {ModalComponent} from './modal/modal.component';
 import {SharedModule} from '../shared/shared.module';
+import {TooltipsModule} from 'ionic-tooltips';
 
 const routes: Routes = [
   {
@@ -27,7 +25,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    TooltipsModule.forRoot()
   ],
   declarations: [
     ResolverPage,
